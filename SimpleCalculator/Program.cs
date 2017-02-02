@@ -13,14 +13,11 @@ namespace SimpleCalculator
             int counter = 0;
             Console.Write("[" + counter + "]");
             string userMathProblem = Console.ReadLine();
-            Match m = Regex.Match(userMathProblem, @"(?<mathA>\w+)\s+(?<mathOper>[\ *xX%\/\-\+])\s+(?<mathB>\w+)");
-            if (m.Success)
-            {
-                string mathA = m.Groups["mathA"].Value.ToString();
-                string mathOper = m.Groups["mathOper"].Value.ToString();
-                string mathB = m.Groups["mathB"].Value.ToString();
-                Console.WriteLine(mathA + mathOper + mathB);
-            }
+            Expression userExpression = new Expression();
+            userExpression.verifyUserMathProblem(userMathProblem);
+            Console.WriteLine(userExpression.mathFactorA);
+            Console.WriteLine(userExpression.mathOperator);
+            Console.WriteLine(userExpression.mathFactorB);
             Console.ReadLine();
         }
     }
