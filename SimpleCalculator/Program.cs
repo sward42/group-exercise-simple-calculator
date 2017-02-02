@@ -21,11 +21,6 @@ namespace SimpleCalculator
                 string mathB = m.Groups["mathB"].Value.ToString();
                 Console.WriteLine(mathA + mathOper + mathB);
             }
-            else
-            {
-                Console.WriteLine("Invalid math problem, please tryagain...");
-            }
-
             Console.ReadLine();
         }
     }
