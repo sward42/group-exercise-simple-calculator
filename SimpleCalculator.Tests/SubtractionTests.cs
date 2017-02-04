@@ -7,9 +7,29 @@ namespace SimpleCalculator.Tests
     public class SubtractionTests
     {
         [TestMethod]
-        public void MakeSureWeCanCreateAnInstance()
+        public void EnsureSubtNotNull()
         {
+            Multiplication multiplication = new Multiplication();
+            Assert.IsNotNull(multiplication);
+        }
 
+        [TestMethod]
+        public void EnsureSubtWorking()
+        {
+            Multiplication multiplication = new Multiplication();
+            int expectedResult = 2 * 3;
+            int actualResult = multiplication.Multiply(2, 3);
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        public void EnsureCanPrintSubt()
+        {
+            Multiplication multiplication = new Multiplication();
+            int expectedResult = 6;
+            int actualResult = multiplication.PrintNumber(6);
+            Assert.AreEqual(expectedResult, actualResult);
         }
     }
 }
