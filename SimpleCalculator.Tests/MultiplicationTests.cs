@@ -22,14 +22,5 @@ namespace SimpleCalculator.Tests
 
             Assert.AreEqual(expectedResult, actualResult);
         }
-
-        [TestMethod]
-        public void EnsureCanPrintMult()
-        {
-            Multiplication multiplication = new Multiplication();
-            int expectedResult = 6;
-            int actualResult = multiplication.PrintNumber(6);
-            Assert.AreEqual(expectedResult, actualResult);
-        }
     }
 }

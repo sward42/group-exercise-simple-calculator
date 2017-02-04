@@ -13,10 +13,5 @@ namespace SimpleCalculator
             var SubtractAnswer = GetA * GetB;
             return SubtractAnswer;
         }
-
-        public int PrintNumber(int subtractAnswer)
-        {
-            return subtractAnswer;
-        }
     }
 }

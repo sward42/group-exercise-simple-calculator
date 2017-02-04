@@ -13,12 +13,5 @@ namespace SimpleCalculator
             var MultiplyAnswer = GetA * GetB;
             return MultiplyAnswer;
         }
-
-        public int PrintNumber(int multiplyAnswer)
-        {
-            return multiplyAnswer;
-        }
-
-
     }
 }
