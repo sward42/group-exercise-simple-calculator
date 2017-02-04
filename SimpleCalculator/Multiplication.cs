@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator
 {
-    class Multiplication
+    public class Multiplication
     {
+        public int GetA { get; set; }
+        public int GetB { get; set; }
+
+        public int Multiply(int GetA, int GetB)
+        {
+            var MultiplyAnswer = GetA * GetB;
+            return MultiplyAnswer;
+        }
+
+        public int PrintNumber(int multiplyAnswer)
+        {
+            return multiplyAnswer;
+        }
+
+
     }
 }
