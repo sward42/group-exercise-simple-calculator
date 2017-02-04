@@ -67,7 +67,8 @@ namespace SimpleCalculator
                         break;
 
                     case "%":
-                        //Console.WriteLine(description + operationUsed);
+                        Modulus modulusNumbers = new Modulus();
+                        Console.WriteLine("   = " + modulusNumbers.ModulusNumbers(mathFactorA, mathFactorB));
                         break;
 
                     default:
