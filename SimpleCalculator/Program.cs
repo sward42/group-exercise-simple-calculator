@@ -14,43 +14,48 @@ namespace SimpleCalculator
         {
 
             int counter = 0;
-            while (true)
+            bool userDoingMath = true;
+            string line = "";
+            while (userDoingMath)
             {
-
                 counter++; 
-
                 Console.Write("[" + counter + "]");
                 string userMathProblem = Console.ReadLine();
-                
-                    Expression userExpression = new Expression();
+                if (userMathProblem == "quit" || userMathProblem == "exit")
+                {
+                    userDoingMath = false;
+                    Environment.Exit(0);
+                }
+                Expression userExpression = new Expression();
                     userExpression.verifyUserMathProblem(userMathProblem);
-                    Console.WriteLine(userExpression.mathFactorA);
-                    Console.WriteLine(userExpression.mathOperator);
-                    Console.WriteLine(userExpression.mathFactorB);
-
-                    string operationUsed = userExpression.mathOperator;
-                    string description = "Operation used: ";
+                int mathFactorA = userExpression.mathFactorA;
+                int mathFactorB = userExpression.mathFactorB;
+                string operationUsed = userExpression.mathOperator;
 
                     switch (operationUsed)
                     {
                         case "+":
-                            Console.WriteLine(description + operationUsed);
+                        Addition addNumbers = new Addition();
+                        Console.WriteLine(addNumbers.AddNumbers(mathFactorA, mathFactorB));
                             break;
 
                         case "-":
-                            Console.WriteLine(description + operationUsed);
-                            break;
+                        Subtraction subtractNumbers = new Subtraction();
+                        Console.WriteLine(subtractNumbers.SubtractNumbers(mathFactorA, mathFactorB));
+                        break;
 
                         case "*":
-                            Console.WriteLine(description + operationUsed);
+                            Multiplication multiplyNumbers = new Multiplication();
+                            Console.WriteLine(multiplyNumbers.MultiplyNumbers(mathFactorA, mathFactorB));
                             break;
 
                         case "/":
-                            Console.WriteLine(description + operationUsed);
+                            Division divideNumbers = new Division();
+                            Console.WriteLine(divideNumbers.DivideNumbers(mathFactorA, mathFactorB));
                             break;
 
-                        case "%":
-                            Console.WriteLine(description + operationUsed);
+                    case "%":
+                            //Console.WriteLine(description + operationUsed);
                             break;
 
                         default:

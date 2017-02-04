@@ -8,10 +8,9 @@ namespace SimpleCalculator
 {
     public class Multiplication
     {
-        public int Multiply(int GetA, int GetB)
+        public int MultiplyNumbers(int firstNum, int secondNum)
         {
-            var MultiplyAnswer = GetA * GetB;
-            return MultiplyAnswer;
+            return firstNum * secondNum;
         }
     }
 }

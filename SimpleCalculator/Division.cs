@@ -8,7 +8,7 @@ namespace SimpleCalculator
 {
     public class Division
     {
-        public int DivideNumbers(int firstNum, int secondNum)
+        public decimal DivideNumbers(int firstNum, int secondNum)
         {
             return firstNum / secondNum;
         }
