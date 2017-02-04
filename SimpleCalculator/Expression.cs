@@ -10,8 +10,8 @@ namespace SimpleCalculator
     public class Expression
     {
         public string mathOperator { get; set; }
-        public decimal mathFactorA { get; set; }
-        public decimal mathFactorB { get; set; }
+        public int mathFactorA { get; set; }
+        public int mathFactorB { get; set; }
         public Expression()
         {
             mathOperator = null;
@@ -19,15 +19,16 @@ namespace SimpleCalculator
             mathFactorB = 0;
         }
         
-        public void verifyUserMathProblem (string userMathProblem)
+        public string verifyUserMathProblem (string userMathProblem)
         {
-            Match m = Regex.Match(userMathProblem, @"(?<mathA>\w+)?\s*(?<mathOper>[\ *xX%\/\-\+])?\s*(?<mathB>\w+)");
-            if (m.Success)
-            {
-                mathFactorA = int.Parse(m.Groups["mathA"].Value);
-                mathOperator = m.Groups["mathOper"].Value.ToString();
-                mathFactorB = int.Parse(m.Groups["mathB"].Value);
-            }
+                Match m = Regex.Match(userMathProblem, @"(?<mathA>\[0-9]+)?\s*(?<mathOper>[\*%\/\-\+])?\s*(?<mathB>\w+)");
+                if (m.Success)
+                {
+                    mathFactorA = int.Parse(m.Groups["mathA"].Value);
+                    mathOperator = m.Groups["mathOper"].Value.ToString();
+                    mathFactorB = int.Parse(m.Groups["mathB"].Value);
+                }
+                return "success";
         }
     }
 }
