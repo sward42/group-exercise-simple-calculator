@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator
 {
-    class Modulus
+    public class Modulus
     {
+        public int ModulusMethod(int GetA, int GetB)
+        {
+            return GetA % GetB;
+        }
     }
 }
