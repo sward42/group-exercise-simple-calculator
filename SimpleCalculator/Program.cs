@@ -12,10 +12,11 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
+            List<string> mathProblems = new List<string>();
+
 
             int counter = 0;
             bool userDoingMath = true;
-            string line = "";
             while (userDoingMath)
             {
                 counter++; 
@@ -26,11 +27,20 @@ namespace SimpleCalculator
                     userDoingMath = false;
                     Environment.Exit(0);
                 }
+                else if (userMathProblem == "last")
+                {
+                    for (int i = 0; i < mathProblems.Count; i++)
+                    {
+                        userMathProblem = mathProblems[i];
+                    }
+                }
                 Expression userExpression = new Expression();
                     userExpression.verifyUserMathProblem(userMathProblem);
                 int mathFactorA = userExpression.mathFactorA;
                 int mathFactorB = userExpression.mathFactorB;
                 string operationUsed = userExpression.mathOperator;
+
+                mathProblems.Add(mathFactorA + operationUsed + mathFactorB);
 
                     switch (operationUsed)
                     {
@@ -62,7 +72,8 @@ namespace SimpleCalculator
                             Console.WriteLine("Please select a valid operation");
                             break;
                     }
-                  
+
+                    Console.WriteLine("Type enter to continue. Type exit or quit to leave the program");
                     Console.ReadLine();
                 
             }
