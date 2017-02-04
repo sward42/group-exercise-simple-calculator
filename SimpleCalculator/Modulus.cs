@@ -8,7 +8,7 @@ namespace SimpleCalculator
 {
     public class Modulus
     {
-        public int ModulusMethod(int GetA, int GetB)
+        public int ModulusNumbers(int GetA, int GetB)
         {
             return GetA % GetB;
         }
