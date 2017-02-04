@@ -18,7 +18,7 @@ namespace SimpleCalculator.Tests
         {
             Multiplication multiplication = new Multiplication();
             int expectedResult = 2*3;
-            int actualResult = multiplication.Multiply(2 ,3);
+            int actualResult = multiplication.MultiplyNumbers(2 ,3);
 
             Assert.AreEqual(expectedResult, actualResult);
         }
