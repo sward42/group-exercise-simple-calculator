@@ -9,16 +9,16 @@ namespace SimpleCalculator.Tests
         [TestMethod]
         public void EnsureSubtNotNull()
         {
-            Multiplication multiplication = new Multiplication();
-            Assert.IsNotNull(multiplication);
+            Subtraction subtraction = new Subtraction();
+            Assert.IsNotNull(subtraction);
         }
 
         [TestMethod]
         public void EnsureSubtWorking()
         {
-            Multiplication multiplication = new Multiplication();
-            int expectedResult = 2 * 3;
-            int actualResult = multiplication.Multiply(2, 3);
+            Subtraction subtraction = new Subtraction();
+            int expectedResult = 1;
+            int actualResult = subtraction.SubtractNumbers(3, 2);
 
             Assert.AreEqual(expectedResult, actualResult);
         }

@@ -19,8 +19,8 @@ namespace SimpleCalculator.Tests
         {
             Division divisionNumber = new Division();
 
-            int expectedResult = 5;
-            int actualResult = divisionNumber.DivideNumbers(15, 3);
+            decimal expectedResult = 5;
+            decimal actualResult = divisionNumber.DivideNumbers(15, 3);
 
             Assert.AreEqual(expectedResult, actualResult);
         }
