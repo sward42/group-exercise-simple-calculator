@@ -7,8 +7,21 @@ namespace SimpleCalculator.Tests
     public class ModulusTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CheckCreatingInstanceOfModulus()
         {
+            Modulus modulus = new Modulus();
+            Assert.IsNotNull(modulus);
         }
+
+        [TestMethod]
+        public void CheckModulusMethod()
+        {
+            Modulus modulus = new Modulus();
+            int expectedResult = 1;
+            int actualResult = modulus.ModulusMethod(3, 2);
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
     }
 }
