@@ -73,9 +73,7 @@ namespace SimpleCalculator
                             break;
                     }
 
-                    Console.WriteLine("Type enter to continue. Type exit or quit to leave the program");
-                    Console.ReadLine();
-                
+                    Console.WriteLine("Type exit or quit to leave the program");
             }
 
         }
