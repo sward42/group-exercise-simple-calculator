@@ -18,10 +18,9 @@ namespace SimpleCalculator.Tests
         {
             Modulus modulus = new Modulus();
             int expectedResult = 1;
-            int actualResult = modulus.ModulusMethod(3, 2);
+            int actualResult = modulus.ModulusNumbers(3, 2);
 
             Assert.AreEqual(expectedResult, actualResult);
         }
-
     }
 }

@@ -64,7 +64,9 @@ namespace SimpleCalculator
                             Console.WriteLine(divideNumbers.DivideNumbers(mathFactorA, mathFactorB));
                             break;
 
-                    case "%":
+                        case "%":
+                            Modulus modulusNumbers = new Modulus();
+                            Console.WriteLine(modulusNumbers.ModulusNumbers(mathFactorA, mathFactorB));
                             //Console.WriteLine(description + operationUsed);
                             break;
 
