@@ -21,7 +21,7 @@ namespace SimpleCalculator
         
         public void verifyUserMathProblem (string userMathProblem)
         {
-            Match m = Regex.Match(userMathProblem, @"(?<mathA>\w+)\s+(?<mathOper>[\ *xX%\/\-\+])\s+(?<mathB>\w+)");
+            Match m = Regex.Match(userMathProblem, @"(?<mathA>\w+)?\s*(?<mathOper>[\ *xX%\/\-\+])?\s*(?<mathB>\w+)");
             if (m.Success)
             {
                 mathFactorA = int.Parse(m.Groups["mathA"].Value);
