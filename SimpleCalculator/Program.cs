@@ -15,12 +15,14 @@ namespace SimpleCalculator
             List<string> mathProblems = new List<string>();
 
             Console.WriteLine("WELCOME TO THE SIMPLE CALCULATOR! Type exit or quit to close the application." + Environment.NewLine);
+           
             int counter = 1;
             bool userDoingMath = true;
             while (userDoingMath)
             {
                 Console.Write("[" + counter + "]  ");
                 string userMathProblem = Console.ReadLine();
+                int KeyCode = 0;
                 if (userMathProblem.ToLower() == "quit" || userMathProblem.ToLower() == "exit")
                 {
                     userDoingMath = false;
@@ -30,7 +32,7 @@ namespace SimpleCalculator
                 {
                     userMathProblem = mathProblems[mathProblems.Count() - 1];
                 }
-                else if (userMathProblem == "lastq")
+                else if (KeyCode == 39)
                 {
                     Console.WriteLine(mathProblems[mathProblems.Count() - 1]);
                 }
