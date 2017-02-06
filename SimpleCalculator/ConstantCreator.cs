@@ -17,12 +17,20 @@ namespace SimpleCalculator
             {
                 string constantName = m.Groups["constantName"].Value.ToString();
                 int constantValue = int.Parse(m.Groups["constantValue"].Value);
-                Constants.Add(constantName, constantValue);
-                Console.WriteLine("   = saved " + constantName + " as " + constantValue);
+                if (Constants.ContainsKey(constantName))
+                {
+                    Constants[constantName] = constantValue;
+                    Console.WriteLine("  = updated " + constantName + " to " + constantValue);
+                }
+                else
+                {
+                    Constants.Add(constantName, constantValue);
+                    Console.WriteLine("   = saved " + constantName + " as " + constantValue);
+                }
             }
         }
 
-        public void getConstant (string constant)
+        public void getConstant(string constant)
         {
             int value = Constants[constant];
             Console.WriteLine("   = " + value);
