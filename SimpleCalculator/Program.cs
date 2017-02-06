@@ -31,7 +31,14 @@ namespace SimpleCalculator
                     do
                     {
                         Console.WriteLine("Bye!");
-                        Thread.Sleep(4000);
+                        Console.WriteLine("exiting in: ");
+                        Thread.Sleep(1000);
+                        Console.Write("3.. ");
+                        Thread.Sleep(1000);
+                        Console.Write("2.. ");
+                        Thread.Sleep(1000);
+                        Console.Write("1");
+                        Thread.Sleep(1000);
                         Environment.Exit(0);
     
                     } while (userDoingMath);
