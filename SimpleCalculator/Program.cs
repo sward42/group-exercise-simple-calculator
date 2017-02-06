@@ -18,6 +18,7 @@ namespace SimpleCalculator
            
             int counter = 1;
             bool userDoingMath = true;
+            ConstantCreator constants = new ConstantCreator();
             while (userDoingMath)
             {
                 Console.Write("[" + counter + "]  ");
@@ -35,6 +36,18 @@ namespace SimpleCalculator
                 else if (KeyCode == 39)
                 {
                     Console.WriteLine(mathProblems[mathProblems.Count() - 1]);
+                }
+                else if (userMathProblem.Contains("="))
+                {
+                    constants.verifyConstant(userMathProblem);
+                }
+                else if (userMathProblem.Any(x => char.IsLetter(x)) && userMathProblem.Length == 1)
+                {
+                    constants.getConstant(userMathProblem);
+                }
+                else if (userMathProblem.Any(x => char.IsLetter(x)) && !userMathProblem.Contains("=") && userMathProblem.Length > 1)
+                {
+                    userMathProblem = constants.updateMathProblemWithConstants(userMathProblem);
                 }
                 Expression userExpression = new Expression();
                 userExpression.verifyUserMathProblem(userMathProblem);
