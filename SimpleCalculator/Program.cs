@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 
 namespace SimpleCalculator
@@ -15,7 +16,7 @@ namespace SimpleCalculator
             List<string> mathProblems = new List<string>();
 
             Console.WriteLine("WELCOME TO THE SIMPLE CALCULATOR! Type exit or quit to close the application." + Environment.NewLine);
-           
+            
             int counter = 1;
             bool userDoingMath = true;
             while (userDoingMath)
@@ -25,12 +26,31 @@ namespace SimpleCalculator
                 int KeyCode = 0;
                 if (userMathProblem.ToLower() == "quit" || userMathProblem.ToLower() == "exit")
                 {
+                
                     userDoingMath = false;
-                    Environment.Exit(0);
+                    do
+                    {
+                        Console.WriteLine("Bye!");
+                        Console.WriteLine("exiting in: ");
+                        Thread.Sleep(1000);
+                        Console.Write("3.. ");
+                        Thread.Sleep(1000);
+                        Console.Write("2.. ");
+                        Thread.Sleep(1000);
+                        Console.Write("1");
+                        Thread.Sleep(1000);
+                        Environment.Exit(0);
+    
+                    } while (userDoingMath);
+                    
                 }
                 else if (userMathProblem == "last")
                 {
                     userMathProblem = mathProblems[mathProblems.Count() - 1];
+                }
+                else if (userMathProblem == "lastq")
+                {
+                    Console.WriteLine(mathProblems[mathProblems.Count() - 1]);
                 }
                 else if (KeyCode == 39)
                 {
