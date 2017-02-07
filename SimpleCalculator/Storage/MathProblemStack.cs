@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator
 {
-    class MathProblemStack
+    public class MathProblemStack
     {
        Stack<string> MathProblems = new Stack<string>();
 
