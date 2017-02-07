@@ -59,7 +59,11 @@
     <Compile Include="MultiplicationTests.cs" />
     <Compile Include="ExpressionTests.cs" />
     <Compile Include="DivisionTests.cs" />
+<<<<<<< HEAD
     <Compile Include="MathProblemStackTests.cs" />
+=======
+    <Compile Include="ConstantsTests.cs" />
+>>>>>>> 84bf57beff0ebb8d33933f667495dfba1c6aa747
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleCalculator\SimpleCalculator.csproj">
