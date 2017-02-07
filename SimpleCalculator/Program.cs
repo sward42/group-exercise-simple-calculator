@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 using System.Threading;
 
 
@@ -13,6 +9,9 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("WELCOME TO THE SIMPLE CALCULATOR! Type \"exit\" or \"quit\" to close at any time.");
             int counter = 1;
             bool userDoingMath = true;
@@ -20,16 +19,27 @@ namespace SimpleCalculator
             MathProblemStack mathProblems = new MathProblemStack();
             while (userDoingMath)
             {
+                Random r = new Random();
+                Console.ForegroundColor = (ConsoleColor)r.Next(0, 16);
+                if (Console.ForegroundColor == ConsoleColor.Black)
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
                 Console.Write("[" + counter + "]  ");
                 string userMathProblem = Console.ReadLine();
                 if (userMathProblem.ToLower() == "quit" || userMathProblem.ToLower() == "exit")
                 {
                     userDoingMath = false;
-
-                    for (int a = 5; a >= 0; a--)
+                    while (!Console.KeyAvailable)
                     {
-                        Console.Write("\rBye! exiting in {0} seconds", a);
-                        System.Threading.Thread.Sleep(1000);
+                        for (int a = 5; a >= 0; a--)
+                        {
+
+                            Console.Write("\rBye! exiting in {0} seconds", a);
+
+                            Thread.Sleep(1000);
+                        }
+                        userDoingMath = true;
                     }
 
                 }
