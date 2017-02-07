@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace SimpleCalculator
 {
-    class Constant
+    public class Constant
     {
         public Dictionary<string, int> Constants = new Dictionary<string, int>();
 
