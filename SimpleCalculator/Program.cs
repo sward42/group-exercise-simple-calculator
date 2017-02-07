@@ -24,23 +24,14 @@ namespace SimpleCalculator
                 string userMathProblem = Console.ReadLine();
                 if (userMathProblem.ToLower() == "quit" || userMathProblem.ToLower() == "exit")
                 {
-                
                     userDoingMath = false;
-                    do
+
+                    for (int a = 5; a >= 0; a--)
                     {
-                        Console.WriteLine("Bye!");
-                        Console.WriteLine("exiting in: ");
-                        Thread.Sleep(1000);
-                        Console.Write("3.. ");
-                        Thread.Sleep(1000);
-                        Console.Write("2.. ");
-                        Thread.Sleep(1000);
-                        Console.Write("1");
-                        Thread.Sleep(1000);
-                        Environment.Exit(0);
-    
-                    } while (userDoingMath);
-                    
+                        Console.Write("\rBye! exiting in {0} seconds", a);
+                        System.Threading.Thread.Sleep(1000);
+                    }
+
                 }
                 else if (userMathProblem == "last")
                 {
