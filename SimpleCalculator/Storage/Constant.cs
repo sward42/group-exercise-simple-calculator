@@ -7,41 +7,54 @@ using System.Text.RegularExpressions;
 
 namespace SimpleCalculator
 {
-    class ConstantCreator
+    class Constant
     {
         public Dictionary<string, int> Constants = new Dictionary<string, int>();
+
         public void verifyConstant(string constantCreationAttempt)
         {
-            Match m = Regex.Match(constantCreationAttempt, @"(?<constantName>[a-z]+)\s*([\=])\s*(?<constantValue>[0-9]+)");
+            Match m = Regex.Match(constantCreationAttempt, @"(?<constantName>[a-zA-Z]+)\s*([\=])\s*(?<constantValue>[0-9]+)");
             if (m.Success)
             {
                 string constantName = m.Groups["constantName"].Value.ToString();
                 int constantValue = int.Parse(m.Groups["constantValue"].Value);
                 if (Constants.ContainsKey(constantName))
                 {
-                    Constants[constantName] = constantValue;
+                    Constants[constantName.ToLower()] = constantValue;
                     Console.WriteLine("   = " + constantName + " is now " + constantValue);
                 }
                 else
                 {
-                    Constants.Add(constantName, constantValue);
+                    Constants.Add(constantName.ToLower(), constantValue);
                     Console.WriteLine("   = saved " + constantName + " as " + constantValue);
                 }
             }
         }
 
-        public void getConstant (string constant)
+        public void getConstant(string retrievingContant)
         {
-            int value = Constants[constant];
-            Console.WriteLine("   = " + value);
+            retrievingContant = retrievingContant.ToLower();
+            if (Constants.ContainsKey(retrievingContant))
+            {
+                int value = Constants[retrievingContant];
+                Console.WriteLine("   = " + value);
+            }
+            else
+            {
+                Console.WriteLine("   = " + retrievingContant + " has not been defined.");
+            }
         }
 
         public string updateMathProblemWithConstants(string userMathProblem)
         {
             string newProblem = "";
+            if (Constants.Count == 0)
+            {
+                Console.WriteLine("   = Error: undefined constant present in equation.");
+            }
             foreach (var constant in Constants)
                 newProblem = Constants.Aggregate(userMathProblem, (result, s) => result.Replace(s.Key, s.Value.ToString()));
-            if (newProblem == userMathProblem)
+            if (newProblem.ToLower() == userMathProblem.ToLower())
             {
                 Console.WriteLine("   = Error: undefined constant present in equation.");
             }

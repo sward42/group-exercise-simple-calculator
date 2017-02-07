@@ -13,18 +13,15 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            List<string> mathProblems = new List<string>();
-
-            Console.WriteLine("WELCOME TO THE SIMPLE CALCULATOR! Type exit or quit to close the application." + Environment.NewLine);
-            
+            Console.WriteLine("WELCOME TO THE SIMPLE CALCULATOR! Type \"exit\" or \"quit\" to close at any time.");
             int counter = 1;
             bool userDoingMath = true;
-            ConstantCreator constants = new ConstantCreator();
+            Constant constants = new Constant();
+            MathProblemStack mathProblems = new MathProblemStack();
             while (userDoingMath)
             {
                 Console.Write("[" + counter + "]  ");
                 string userMathProblem = Console.ReadLine();
-                int KeyCode = 0;
                 if (userMathProblem.ToLower() == "quit" || userMathProblem.ToLower() == "exit")
                 {
                 
@@ -47,15 +44,11 @@ namespace SimpleCalculator
                 }
                 else if (userMathProblem == "last")
                 {
-                    userMathProblem = mathProblems[mathProblems.Count() - 1];
+                    userMathProblem =  mathProblems.getLastMathProblem();
                 }
                 else if (userMathProblem == "lastq")
                 {
-                    Console.WriteLine(mathProblems[mathProblems.Count() - 1]);
-                }
-                else if (KeyCode == 39)
-                {
-                    Console.WriteLine(mathProblems[mathProblems.Count() - 1]);
+                    Console.WriteLine("   = " + mathProblems.getLastMathProblem());
                 }
                 else if (userMathProblem.Contains("="))
                 {
@@ -77,7 +70,7 @@ namespace SimpleCalculator
 
                 if (mathFactorA != 0 && operationUsed != null && mathFactorB != 0)
                 {
-                    mathProblems.Add(mathFactorA + operationUsed + mathFactorB);
+                    mathProblems.addNewMathProblem((mathFactorA + operationUsed + mathFactorB).ToString());
                 }
                 switch (operationUsed)
                 {
@@ -109,6 +102,7 @@ namespace SimpleCalculator
                     default:
                         break;
                 }
+                Console.WriteLine(Environment.NewLine);
                 counter++;
 
             }
