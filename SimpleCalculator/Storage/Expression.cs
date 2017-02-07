@@ -19,7 +19,7 @@ namespace SimpleCalculator
             mathFactorB = 0;
         }
         
-        public string verifyUserMathProblem (string userMathProblem)
+        public void verifyUserMathProblem (string userMathProblem)
         {
                 Match m = Regex.Match(userMathProblem, @"(?<mathA>\d+)\s*(?<mathOper>[\*%\/\-\+\=])\s*(?<mathB>\d+)");
                 if (m.Success)
@@ -28,7 +28,6 @@ namespace SimpleCalculator
                     mathOperator = m.Groups["mathOper"].Value.ToString();
                     mathFactorB = int.Parse(m.Groups["mathB"].Value);
                 }
-                return "success";
         }
     }
 }
