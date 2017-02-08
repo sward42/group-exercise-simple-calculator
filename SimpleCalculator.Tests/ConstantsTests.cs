@@ -35,9 +35,9 @@ namespace SimpleCalculator.Tests
         public void EnsureCanUpdateMathProblem()
         {
             Constant constant = new Constant();
-            string expectedResult = "x";
+            constant.verifyConstant("x = 15");
             string actualResult = constant.updateMathProblemWithConstants("x");
-            Assert.AreEqual(expectedResult, actualResult);
+            Assert.AreEqual("15" , actualResult);
         }
     }
 }
