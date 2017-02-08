@@ -12,19 +12,14 @@ namespace SimpleCalculator
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("WELCOME TO THE SIMPLE CALCULATOR! Type \"exit\" or \"quit\" to close at any time.");
+            Console.WriteLine("Welcome to the \"simple\" calculator! Type \"exit\" or \"quit\" to close at any time.");
             int counter = 1;
             bool userDoingMath = true;
             Constant constants = new Constant();
             MathProblemStack mathProblems = new MathProblemStack();
             while (userDoingMath)
             {
-                Random r = new Random();
-                Console.ForegroundColor = (ConsoleColor)r.Next(0, 16);
-                if (Console.ForegroundColor == ConsoleColor.Black)
-                {
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("[" + counter + "]  ");
                 string userMathProblem = Console.ReadLine();
                 if (userMathProblem.ToLower() == "quit" || userMathProblem.ToLower() == "exit")
@@ -33,7 +28,7 @@ namespace SimpleCalculator
                     {
                         for (int a = 5; a >= 0; a--)
                         {
-
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.Write("\rBye! exiting in {0} seconds", a);
 
                             Thread.Sleep(1000);
