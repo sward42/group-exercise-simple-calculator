@@ -11,7 +11,7 @@ namespace SimpleCalculator
     {
         public Dictionary<string, int> Constants = new Dictionary<string, int>();
 
-        public void verifyConstant(string constantCreationAttempt)
+        public string verifyConstant(string constantCreationAttempt)
         {
             Match m = Regex.Match(constantCreationAttempt, @"(?<constantName>[a-zA-Z]+)\s*([\=])\s*(?<constantValue>[0-9]+)");
             if (m.Success)
@@ -21,27 +21,28 @@ namespace SimpleCalculator
                 if (Constants.ContainsKey(constantName.ToLower()))
                 {
                     Constants[constantName.ToLower()] = constantValue;
-                    Console.WriteLine("   = " + constantName + " is now " + constantValue);
+                    return "   = " + constantName + " is now " + constantValue;
                 }
                 else
                 {
                     Constants.Add(constantName.ToLower(), constantValue);
-                    Console.WriteLine("   = saved " + constantName + " as " + constantValue);
+                    return "   = saved " + constantName + " as " + constantValue;
                 }
             }
+            throw new Exception("You didn't type the correct format. An example would be x = 10.");
         }
 
-        public void getConstant(string retrievingContant)
+        public int getConstant(string retrievingContant)
         {
             retrievingContant = retrievingContant.ToLower();
             if (Constants.ContainsKey(retrievingContant))
             {
                 int value = Constants[retrievingContant];
-                Console.WriteLine("   = " + value);
+                return value;
             }
             else
             {
-                Console.WriteLine("   = " + retrievingContant + " has not been defined.");
+                throw new Exception(retrievingContant + " has not been defined.");
             }
         }
 

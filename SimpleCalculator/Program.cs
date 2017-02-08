@@ -46,11 +46,11 @@ namespace SimpleCalculator
                 }
                 else if (userMathProblem.Contains("="))
                 {
-                    constants.verifyConstant(userMathProblem);
+                    Console.WriteLine(constants.verifyConstant(userMathProblem));
                 }
                 else if (userMathProblem.Any(x => char.IsLetter(x)) && userMathProblem.Length == 1)
                 {
-                    constants.getConstant(userMathProblem);
+                    Console.WriteLine(constants.getConstant(userMathProblem));
                 }
                 else if (userMathProblem.Any(x => char.IsLetter(x)) && !userMathProblem.Contains("=") && userMathProblem.Length > 1)
                 {
