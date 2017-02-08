@@ -18,7 +18,7 @@ namespace SimpleCalculator
             {
                 string constantName = m.Groups["constantName"].Value.ToString();
                 int constantValue = int.Parse(m.Groups["constantValue"].Value);
-                if (Constants.ContainsKey(constantName))
+                if (Constants.ContainsKey(constantName.ToLower()))
                 {
                     Constants[constantName.ToLower()] = constantValue;
                     Console.WriteLine("   = " + constantName + " is now " + constantValue);
@@ -48,13 +48,9 @@ namespace SimpleCalculator
         public string updateMathProblemWithConstants(string userMathProblem)
         {
             string newProblem = "";
-            if (Constants.Count == 0)
-            {
-                Console.WriteLine("   = Error: undefined constant present in equation.");
-            }
             foreach (var constant in Constants)
                 newProblem = Constants.Aggregate(userMathProblem, (result, s) => result.Replace(s.Key, s.Value.ToString()));
-            if (newProblem.ToLower() == userMathProblem.ToLower())
+            if (newProblem.ToLower() == userMathProblem.ToLower() || Constants.Count == 0)
             {
                 Console.WriteLine("   = Error: undefined constant present in equation.");
             }
