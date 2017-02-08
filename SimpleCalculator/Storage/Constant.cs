@@ -16,7 +16,7 @@ namespace SimpleCalculator
             Match m = Regex.Match(constantCreationAttempt, @"(?<constantName>[a-zA-Z]+)\s*([\=])\s*(?<constantValue>[0-9]+)");
             if (m.Success)
             {
-                string constantName = m.Groups["constantName"].Value.ToString();
+                string constantName = m.Groups["constantName"].Value.ToString().ToLower();
                 int constantValue = int.Parse(m.Groups["constantValue"].Value);
                 if (Constants.ContainsKey(constantName.ToLower()))
                 {
@@ -48,6 +48,7 @@ namespace SimpleCalculator
         public string updateMathProblemWithConstants(string userMathProblem)
         {
             string newProblem = "";
+            userMathProblem = userMathProblem.ToLower();
             foreach (var constant in Constants)
                 newProblem = Constants.Aggregate(userMathProblem, (result, s) => result.Replace(s.Key, s.Value.ToString()));
             if (newProblem.ToLower() == userMathProblem.ToLower() || Constants.Count == 0)
