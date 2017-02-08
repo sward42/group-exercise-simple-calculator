@@ -30,7 +30,6 @@ namespace SimpleCalculator
                 if (userMathProblem.ToLower() == "quit" || userMathProblem.ToLower() == "exit")
                 {
                     userDoingMath = false;
-                    while (!Console.KeyAvailable)
                     {
                         for (int a = 5; a >= 0; a--)
                         {
@@ -39,9 +38,8 @@ namespace SimpleCalculator
 
                             Thread.Sleep(1000);
                         }
-                        userDoingMath = true;
                     }
-
+                        
                 }
                 else if (userMathProblem == "last")
                 {
